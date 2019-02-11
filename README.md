@@ -19,7 +19,7 @@ To run the server on a Docker container, please execute the following from the r
 docker build -t google_service .
 
 este servicio debe quedar alojado en el puerto
-http://172.17.0.4:8081
+:8081
 
 # starting up a container
 docker run --name google --link user:user -p 8081:8081 google_service
