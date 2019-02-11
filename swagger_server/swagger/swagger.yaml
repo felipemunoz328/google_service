@@ -1,0 +1,74 @@
+---
+swagger: "2.0"
+info:
+  description: "consumo api de google "
+  version: "1.0.0"
+  title: "test de microservicio"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+tags:
+- name: "Google"
+  description: "obtencion de lon y lat a travez de direccion"
+schemes:
+- "https"
+- "http"
+
+paths:
+  /get_latlon:
+    post:
+      tags:
+      - "Google"
+      summary: "obtener coordenadas"
+      description: ""
+      operationId: "get_latlon_get"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "hello"
+        required: true
+        schema:
+          $ref: "#/definitions/get_lat_lon"
+      responses:
+        200:
+          description: "OK"
+      x-swagger-router-controller: "swagger_server.controllers.google_controller"
+  
+      
+definitions:
+  get_lat_lon:
+    type: "object"
+    properties:
+      address:
+        type: "string"
+      number:
+        type: "string"
+      comuna:
+        type: "string"
+      ciudad:
+        type: "string"
+      pais:
+        type: "string"
+    example:
+      Inicio:
+        address: "apoquindo"
+        number: "4820"
+        comuna: "las condes"
+        ciudad: "santiago"
+        pais: "chile"
+      Destino:
+        address: "Antonio varas"
+        number: "880"
+        comuna: "providencia"
+        ciudad: "santiago"
+        pais: "chile"
+        
+      
